@@ -1,0 +1,21 @@
+ENVIROMENT
+==========
+
+* yum
+
+sudo yum install expat-devel
+
+* perl
+
+http://www.seeds-std.co.jp/seedsblog/611.html
+
+* cpanm
+
+Config::Tiny
+Dafta::Dumper
+Encode
+Furl
+HTML::TreeBuilder
+Net::Twitter
+WWW::Shorten
+XML::Simple
