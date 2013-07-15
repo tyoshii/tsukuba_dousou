@@ -13,14 +13,8 @@ use Net::Twitter;
 use WWW::Shorten qw( TinyURL :short );
 use XML::Simple;
 
-use constant CACHE_FILE => $ENV{HOME}.'/bin/tsukuba_dousou/cache';
-
-use constant {
-    ACCESS_TOKEN        => '241532256-gv3SNGeRITxQTh4rSj3kbfnDaQHEf16PtE9PrcQ',
-    ACCESS_TOKEN_SECRET => 'zlF83MgHnyqeNGos36ZJeniLOqwdp72cOBzVh31DrY',
-    CONSUMER_KEY        => 'xtNlWWJyjXuZoQkBPJUaw',
-    CONSUMER_SECRET     => 'FtcLJe9IhnPr50ZmMfNf5ZeAlvjzTHKfXLMVYeXd90',
-};
+use constant CACHE_FILE => $ENV{HOME}.'/bot/tsukuba_dousou/cache';
+use constant TOKEN_FILE => $ENV{HOME}.'/bot/tsukuba_dousou/token.pl';
 
 use constant {
     UNIV_BLOG_RSS   => 'http://blog.goo.ne.jp/tsukuba_baseball/index.rdf',
@@ -274,12 +268,10 @@ sub tweet {
 
     my $new_items = shift;
 
+    require TOKEN_FILE; 
     my $t = Net::Twitter->new(
         traits   => [qw/OAuth API::REST/],
-        access_token => ACCESS_TOKEN,
-        access_token_secret => ACCESS_TOKEN_SECRET,
-        consumer_key => CONSUMER_KEY,
-        consumer_secret => CONSUMER_SECRET,
+        %token,
     );
 
     for ( @$new_items ) {

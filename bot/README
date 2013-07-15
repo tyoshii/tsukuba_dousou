@@ -19,3 +19,15 @@ HTML::TreeBuilder
 Net::Twitter
 WWW::Shorten
 XML::Simple
+
+* TOKEN_FILE
+
+$ cat token.pl
+
+%token = (
+    ACCESS_TOKEN        => 'XXXXX',
+    ACCESS_TOKEN_SECRET => 'XXXXX',
+    CONSUMER_KEY        => 'XXXXX',
+    CONSUMER_SECRET     => 'XXXXX',
+);
+
