@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use utf8;
 
+# comment
+
 use Config::Tiny;
 use Data::Dumper;
 use Encode;
